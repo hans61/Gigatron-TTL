@@ -288,6 +288,49 @@
 #define sdChipSelectPin 2
 #endif
 
+/*----------------------------------------------------------------------+
+ |      Nano Every config                                               |
+ +----------------------------------------------------------------------*/
+// DB9 Gigatron 2=SER_DATA 3=SER_LATCH 4=SER_PULSE
+ // Arduino    AVR    Gigatron Schematic Controller PCB              Gigatron
+ // Nano Every Name   OUT bit            CD4021     74HC595 (U39)    DB9 (J4)
+ // ---------- ------ -------- --------- ---------- ---------------- --------
+ // Pin 28     PORTB1 None     SER_DATA  11 SER INP 14 SER           2
+ // Pin 27     PORTB0 7 vSync  SER_LATCH  0 PAR/SER None             3
+ // Pin 23     PORTB2 6 hSync  SER_PULSE 10 CLOCK   11 SRCLK 12 RCLK 4
+
+#if defined(ARDUINO_AVR_NANO_EVERY)
+
+#define platform "ArduinoNanoEvery"
+#define maxStorage 49152
+
+// New port designations
+#define PORTB VPORTB.OUT
+#define DDRB VPORTB.DIR
+#define PINB VPORTB.IN
+
+// Pins for Gigatron (must be on VPORTB)
+#define gigatronDataPin   10
+#define gigatronLatchPin  9
+#define gigatronPulsePin  5
+#define gigatronPinToBitMask digitalPinToBitMask
+
+// Pins for Controller
+#define gameControllerDataPin 16
+#define gameControllerLatchPin 17
+#define gameControllerPulsePin 20
+
+// Pins for PS/2 keyboard
+#define keyboardClockPin 15 // A1 = PPORTD2 (Every Pin5)
+#define keyboardDataPin  14 // A0 = PPORTD3 (Every Pin4) Any available free pin
+
+// Link to PC/laptop
+#define hasSerial 1
+
+// SD Card
+#define sdChipSelectPin 21
+#endif
+
 void (*resetFunc)(void) = 0;
 
 /*----------------------------------------------------------------------+
