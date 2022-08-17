@@ -1,0 +1,54 @@
+; First test of the SN76489
+SYS_ExpanderControl_v4_40   EQU     0x0b09
+SYS_SpiExchangeBytes_v4_134 EQU     0x0b15
+
+sysFn                       EQU     0x22
+sysArgs0                    EQU     0x24
+sysArgs2                    EQU     0x26
+sysArgs4                    EQU     0x28
+sysArgs6                    EQU     0x2A
+
+Temp                        EQU     0x81
+tmpArg                      EQU     0x83	; count of data
+ptr                      	EQU     0x85	; pointer to data
+cnt							EQU		0x87
+
+
+        
+start   LDWI    SYS_ExpanderControl_v4_40
+        STW     sysFn
+
+		LDWI    0x0100      ; SN76489 /WE = 1
+        SYS     40
+		
+		LDWI    data - 1	; pointer is incented before data is read
+		STW		ptr			; init pointer to data
+		LDWI	-7
+		STW		cnt			; init count of data
+		
+		LDI     0x10        ; DEVADDR0 = 0x00 (bit0 /WR), DEVADDR1 = 0x10 (data SN76489)
+        ST      tmpArg
+		
+loop1   LDW     ptr         ; data value
+		ADDI    0x01
+		STW		ptr
+		PEEK
+        ST      tmpArg + 1
+		LDW     tmpArg      ; vAC Low Byte = DEVADDRx, High Byte = Data = Couter
+        SYS     40
+        
+		LDWI    0x0000      ; SN76489 /WE = 0
+        SYS     40
+		LDWI    0x0100      ; SN76489 /WE = 1
+        SYS     40
+
+		LDW 	cnt
+		ADDI    0x01
+		STW		cnt
+		BNE     loop1
+		
+loop    BRA     loop
+
+data	DB		0x9F 0xBF 0xDF 0xFF	; init
+		DB		0xA1 0x0E 0xB0		; C#5 @ 554Hz
+		DB		0xB0 0xB0 0xB0

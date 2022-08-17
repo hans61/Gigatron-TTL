@@ -1,0 +1,25 @@
+; First test of the SN76489
+SYS_ExpanderControl_v4_40   EQU     0x0b09
+SYS_SpiExchangeBytes_v4_134 EQU     0x0b15
+
+sysFn                       EQU     0x22
+sysArgs0                    EQU     0x24
+sysArgs2                    EQU     0x26
+sysArgs4                    EQU     0x28
+sysArgs6                    EQU     0x2A
+
+Temp                        EQU     0x81
+tmpArg                      EQU     0x83
+
+
+        
+start   LDWI    SYS_ExpanderControl_v4_40
+        STW     sysFn
+
+loop	LDWI    0x0100      ; SN76489 /WE = 1
+        SYS     40
+
+		LDWI    0x0000      ; SN76489 /WE = 0
+        SYS     40
+
+		BRA     loop
