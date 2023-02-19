@@ -15,3 +15,6 @@ One way to solve the problem is to modify the breakout, which requires some skil
 I built and tested both PCBs. They work as expected.
 
 ![expansion original](./expansion-original/picture/expansion-original-pcb-2.jpg)
+![expansion original](./picture/gigatron-with-expansion-original.jpg)
+![expansion dualdrive](./expansion-dualdrive/picture/expansion-dualdrive-pcb2.jpg)
+![expansion dualdrive](./picture/gigatron-with-expansion-dualdrive.jpg)
