@@ -16,7 +16,10 @@ The second possibility is to solve it with hardware. I did that with the second 
 
 I built and tested both PCBs. They work as expected.
 
+## original
 ![expansion original](./expansion-original/picture/expansion-original-pcb-2.jpg)
 ![expansion original](./picture/gigatron-with-expansion-original.jpg)
+
+## dualdrive modify
 ![expansion dualdrive](./expansion-dualdrive/picture/expansion-dualdrive-pcb2.jpg)
 ![expansion dualdrive](./picture/gigatron-with-expansion-dualdrive.jpg)
