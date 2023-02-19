@@ -13,3 +13,5 @@ This is partly due to the SD cards, which only behave like SPI devices after the
 One way to solve the problem is to modify the breakout, which requires some skill. The second possibility is to solve it with hardware. I did that with the second PCB. I borrowed two gates from the 74125 for the solution. This reduces the available SPI on this PCB from 4 to 2.
 
 I built and tested both PCBs. They work as expected.
+
+![expansion original](./expansion-original/picture/expansion-original-pcb-2.jpg)
