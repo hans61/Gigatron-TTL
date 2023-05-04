@@ -24,6 +24,8 @@ Before I soldered the cable for CLK to the Gigatron. It must be in the connectio
 CLK wire on Gigatron
 ![CLK wire](picture/gigatron-romemulator-wire.jpg)
 
-
 Gigatron with "In Circuit EPROM Emulator and Debugger"
-![Gigatron with EPROM emulator and debugger](picture/gigatron-with-romemulator.jpg)
+![Gigatron with EPROM emulator and debugger](picture/gigatron-with-rom-emulator.jpg)
+
+"In Circuit EPROM Emulator and Debugger" serial communication
+![Gigatron with EPROM emulator and debugger](picture/rom-emulator-serial.jpg)
