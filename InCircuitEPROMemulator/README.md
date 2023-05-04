@@ -28,4 +28,10 @@ Gigatron with "In Circuit EPROM Emulator and Debugger"
 ![Gigatron with EPROM emulator and debugger](picture/gigatron-with-rom-emulator.jpg)
 
 "In Circuit EPROM Emulator and Debugger" serial communication
-![Gigatron with EPROM emulator and debugger](picture/rom-emulator-serial.jpg)
+![serial communication](picture/rom-emulator-serial.jpg)
+
+"In Circuit EPROM Emulator and Debugger" serial communication load ROM from SD
+![serial communication sd card](picture/rom-emulator-serial-load-rom-from-sd.jpg)
+
+"In Circuit EPROM Emulator and Debugger" serial communication load ROM from xmodem
+![serial communication xmodem](picture/rom-emulator-serial-load-rom-from-xmodem.jpg)
