@@ -21,7 +21,9 @@ After soldering the rest of the parts and removing JP1, it can be inserted into 
 
 Before I soldered the cable for CLK to the Gigatron. It must be in the connection from the crystal to R1. It can be soldered very well to R1 from above. It also didn't affect operation without the board.
 
+CLK wire on Gigatron
 ![CLK wire](picture/gigatron-romemulator-wire.jpg)
 
 
+Gigatron with "In Circuit EPROM Emulator and Debugger"
 ![Gigatron with EPROM emulator and debugger](picture/gigatron-with-romemulator.jpg)
