@@ -36,5 +36,16 @@ Soldering C8
 
 ![soldering C8](picture/soldering/7-gigatron-in-system-rom-emulator-and-debugger-solder-c8.jpg)
 
-Waiting for delivery of the LPC1114
+Soldering LPC1114
 
+![soldering C8](picture/soldering/8-cpu-soldered.jpg)
+
+Soldering finished
+
+![soldering C8](picture/soldering/9-finished-soldered.jpg)
+
+Two ISD completely assembled
+
+![soldering C8](picture/soldering/A-isd-finished.jpg)
+
+[Back to the overview](https://github.com/hans61/Gigatron-TTL/tree/main/InCircuitEPROMemulator)
