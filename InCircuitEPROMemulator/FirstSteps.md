@@ -9,6 +9,8 @@ Ich habe unter Windows das Tool Flash Magic genutzt (https://www.flashmagictool.
 
 I have programmed the firmware without the Gigatron. All three jumpers must be connected.
 
+Addition: I have successfully tested it with lpc21isp under Linux Debian.
+
 ## Connection with a terminal program
 
 If jumper JP1 (Vbus) is connected, the Gigatron is supplied with voltage via the USB port of the ISD. This should not be done simultaneously with the USB of the Gigatron. If the Gigatron is supplied with voltage directly, JP1 must not be connected.
@@ -16,6 +18,8 @@ If jumper JP1 (Vbus) is connected, the Gigatron is supplied with voltage via the
 Communication should be possible with any terminal program (115200 baud 8 data bits 1 stop bit and parity none, no flow control)
 
 The transfer of data with XMODEM (ROM or gt1 file) I could only test successfully with HyperTerminal and ExtraPuTTYtel.
+
+Addition: I have successfully tested it with minicom under Linux Debian.
 
 ## SD card
 
