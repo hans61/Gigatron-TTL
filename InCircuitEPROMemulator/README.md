@@ -31,6 +31,8 @@ Gigatron with "In Circuit EPROM Emulator and Debugger"
 
 [**Programming the firmware and using the SD card**](https://github.com/hans61/Gigatron-TTL/blob/main/InCircuitEPROMemulator/FirstSteps.md)
 
+## Use ISD
+
 "In Circuit EPROM Emulator and Debugger" serial communication
 ![serial communication](picture/rom-emulator-serial.jpg)
 
