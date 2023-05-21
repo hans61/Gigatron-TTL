@@ -27,6 +27,8 @@ CLK wire on Gigatron
 Gigatron with "In Circuit EPROM Emulator and Debugger"
 ![Gigatron with EPROM emulator and debugger](picture/isd-on-gigatron.jpg)
 
+[Bildergalerie vom zusammenbau des ISD](https://github.com/hans61/Gigatron-TTL/blob/main/InCircuitEPROMemulator/Assembly.md)
+
 "In Circuit EPROM Emulator and Debugger" serial communication
 ![serial communication](picture/rom-emulator-serial.jpg)
 
