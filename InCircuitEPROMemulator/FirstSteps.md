@@ -7,7 +7,7 @@ Ich habe unter Windows das Tool Flash Magic genutzt (https://www.flashmagictool.
 
 ![programming with Flash Magic](picture/installing-the-firmware-on-the-lpc1114.jpg)
 
-I programmed the firmware without connecting the Gigatron to all three jumpers.
+I have programmed the firmware without the Gigatron. All three jumpers must be connected.
 
 ## Connection with a terminal program
 
