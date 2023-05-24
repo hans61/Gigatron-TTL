@@ -1,4 +1,4 @@
-# In Circuit EPROM emulator and debugger
+# In Circuit EPROM emulator and debugger (ISD = In System Debugger)
 
 I am not the author of this project. The repositories is only for documenting my rebuild.
 
@@ -30,6 +30,8 @@ Gigatron with "In Circuit EPROM Emulator and Debugger"
 [**Picture gallery of assembly the ISD**](https://github.com/hans61/Gigatron-TTL/blob/main/InCircuitEPROMemulator/Assembly.md)
 
 [**Programming the firmware and using the SD card**](https://github.com/hans61/Gigatron-TTL/blob/main/InCircuitEPROMemulator/FirstSteps.md)
+
+[**ISD Connection with the Gigatron**](https://github.com/hans61/Gigatron-TTL/blob/main/InCircuitEPROMemulator/ConnectionGigatronIsd.md)
 
 ## Use ISD
 
