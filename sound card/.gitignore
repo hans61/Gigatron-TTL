@@ -1,4 +1,4 @@
-*.gt1
+# *.gt1
 # Prerequisites
 *.d
 
@@ -31,3 +31,6 @@
 *.exe
 *.out
 *.app
+
+
+*.lnk

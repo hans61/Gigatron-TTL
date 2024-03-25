@@ -1,0 +1,121 @@
+; 10  REM ** BELL OR CHIME **
+; 20  N=7; REM PORT NUMBER OF SN76489
+; 30  OUT N, 159; REM TURN OFF TONE 1
+; 40  OUT N, 191; REM TURN OFF TONE 3
+; 50  OUT N, 223; REM TURN OFF TONE 4
+; 60  OUT N, 255; REM TURN OFF NOISE
+; 70  OUT N, 140; REM TONE 1 AT 679HZ
+; 80  OUT N, 5
+; 90  OUT N, 170; REM TONE 2 AT 694HZ
+; 100 OUT N, 5
+; 110 FOR B=0 TO 11; REM B=NUMBER OF BELLS
+; 120 FOR I=145 TO 159; REM LOOP TO GENERATE VOLUME STEPS
+; 130 OUT N, I; OUT N, (I+32); REM CHANGE VOLUME FOR TONE 1&2
+; 140 FOR D=0 TO 75; NEXT D; REM DELAY LOOP
+; 150 NEXT I
+; 160 NEXT B
+; 190 PRINT "END OF SOUND"
+
+start           EQU     0x200
+
+SYS_ExpanderControl_v4_40   EQU     0x0b09
+SYS_SpiExchangeBytes_v4_134 EQU     0x0b15
+
+sysFn               EQU     0x22
+sysArgs0            EQU     0x24
+sysArgs2            EQU     0x26
+sysArgs4            EQU     0x28
+sysArgs6            EQU     0x2A
+
+Temp                EQU     0x81
+Counter             EQU     0x83
+TLow                EQU     0x84
+THigh               EQU     0x85
+IOAddr              EQU     0x84
+OutValue            EQU     0x85
+b                   EQU     0x86
+i                   EQU     0x87
+
+frame               EQU     0x9E
+giga_frameCount     EQU     0x0E
+
+_startAddress_      EQU     0x0200
+
+_callTable_         EQU     0x007E
+
+start   LDWI    SYS_ExpanderControl_v4_40
+        STW     sysFn
+		LDWI    0x0100						; /WR auf high
+		SYS     40
+		
+		LDI     0x9f						; OUT N, 159; REM TURN OFF TONE 1
+		CALL	wr76489
+		LDI     0xbf						; OUT N, 191; REM TURN OFF TONE 3
+		CALL	wr76489
+		LDI     0xdf						; OUT N, 223; REM TURN OFF TONE 4
+		CALL	wr76489
+		LDI     0xff						; OUT N, 255; REM TURN OFF NOISE
+		CALL	wr76489
+		LDI     0x8c						; OUT N, 140; REM TONE 1 AT 679HZ
+		CALL	wr76489
+		LDI     0x05						; OUT N, 5
+		CALL	wr76489
+		LDI     0xaa						; OUT N, 170; REM TONE 2 AT 694HZ
+		CALL	wr76489
+		LDI     0x05						; OUT N, 5
+		CALL	wr76489
+
+
+		LDI     0x00
+		ST      b
+loopB	LD      b							; FOR B=0 TO 11; REM B=NUMBER OF BELLS
+		SUBI	0x0c						; 0x0c=12=Abbruch
+		BEQ		NextB
+		LDI     0x91						; I=145=0x91
+		ST      i
+loopI	LD      i							; FOR I=145 TO 159; REM LOOP TO GENERATE VOLUME STEPS
+		SUBI	0xa0						; 0xa0=160=Abbruch
+		BEQ		NextI
+		LD      i
+		CALL	wr76489						; OUT N, I; OUT N, (I+32); REM CHANGE VOLUME FOR TONE 1&2
+		LD      i
+		ADDI	0x20						; 32=0x20
+		CALL	wr76489						; OUT N, J (0x05..11)
+
+        LDWI    -1600       				; FOR D=0 TO 75; NEXT D; REM DELAY LOOP 114ms [-300 ~180..182ms]
+        STW     Temp
+wait1   LDW     Temp        				; delay
+        ADDI    0x01
+        STW     Temp
+        BNE     wait1
+
+		INC		i
+		BRA		loopI
+NextI	INC		b							; nach NEXT I
+		BRA		loopB
+		
+NextB	LDI     0x9f						; nach NEXT J
+
+
+NextI2	LDWI    0	     					; maximum warteschleife [0 ~ 4,9s | 1 ~ 76,3µs]
+        STW     Temp
+wait3   LDW     Temp        				; delay
+        ADDI    0x01
+        STW     Temp
+        BNE     wait3
+
+		BRA		start						; nach NEXT I
+		
+wr76489 ST		OutValue
+		LDWI    SYS_ExpanderControl_v4_40
+        STW     sysFn
+		LDI     0x10         ; DEVADDR0 = 0x00, DEVADDR1 = 0x10 
+		ST		IOAddr
+		LDW		IOAddr       ; vAC = (0x82,0x83) Low Byte = DEVADDRx, High Byte = Data = Couter
+		SYS     40
+		LDWI    0x0000		; /WR low
+		SYS     40
+		LDWI    0x0100		; dalay 8µS nötig
+		LDWI    0x0100		; /WR high
+		SYS     40
+		RET
