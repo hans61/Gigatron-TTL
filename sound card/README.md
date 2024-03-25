@@ -23,7 +23,15 @@ https://map.grauw.nl/resources/sound/texas_instruments_sn76489an.pdf
 Pinout 2:
 https://en.m.wikipedia.org/wiki/Texas_Instruments_SN76489
 
+I solved the problem on the breadboard for now.
 
+![pin swap](picture/hack-sn76489.jpg)
+
+I'm still testing a small adapter board. When she leaves I will post it here.
+I will also rework the PCB itself.
+
+First tests (fast cell phone video):
+https://www.youtube.com/watch?v=wv5x-WD0vzI
 
 
 
