@@ -6,8 +6,7 @@ This is my attempt for a Gigatron sound card (Rev.3 still in work).
 Unfortunately, I haven't had any success so far in producing a reasonable sound on the board. Now I have finally discovered the cause of the problem.
 The SN76489 is available in two different pinouts. The difference is mirrored data pins.
 
-| SN76489 |          |          |
-|   Pin   | Pinout 1 | Pinout 2 |
+| SN76489  Pin  | Pinout 1 | Pinout 2 |
 |:-------:|:--------:|:--------:|
 |    3    |    D0    |    D7    |
 |    2    |    D1    |    D6    |
@@ -20,6 +19,7 @@ The SN76489 is available in two different pinouts. The difference is mirrored da
 
 Pinout 1:
 https://map.grauw.nl/resources/sound/texas_instruments_sn76489an.pdf
+
 Pinout 2:
 https://en.m.wikipedia.org/wiki/Texas_Instruments_SN76489
 
